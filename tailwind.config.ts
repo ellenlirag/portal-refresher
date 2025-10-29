@@ -118,7 +118,7 @@ export default {
             transform: "translateY(0px)"
           },
           "50%": {
-            transform: "translateY(-10px)"
+            transform: "translateY(-5px)"
           }
         },
       },
@@ -128,7 +128,7 @@ export default {
         "fade-in": "fade-in 0.5s ease-out",
         "slide-in-left": "slide-in-left 0.6s ease-out",
         "slide-in-right": "slide-in-right 0.6s ease-out",
-        "float": "float 3s ease-in-out infinite",
+        "float": "float 6s ease-in-out infinite",
       },
       backgroundImage: {
         "gradient-primary": "var(--gradient-primary)",
