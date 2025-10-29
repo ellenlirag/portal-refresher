@@ -86,7 +86,7 @@ const Index = () => {
               <Button
                 type="button"
                 variant="outline"
-                className="w-full h-14 text-lg font-bold border-2 hover:bg-secondary transition-all duration-300"
+                className="w-full h-14 text-lg font-bold border-2 hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                 onClick={() => toast.info("Funcionalidade em desenvolvimento")}
               >
                 Cadastre-se agora
@@ -128,7 +128,7 @@ const Index = () => {
         
         <div className="relative z-10 flex flex-col items-center animate-slide-in-right">
           {/* Speech Bubble */}
-          <div className="mb-8 bg-card rounded-3xl shadow-card p-8 max-w-md relative">
+          <div className="mb-8 bg-card rounded-3xl shadow-card p-8 max-w-md relative animate-float cursor-pointer hover:shadow-lg transition-shadow duration-300">
             <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[20px] border-l-transparent border-r-[20px] border-r-transparent border-t-[24px] border-t-card"></div>
             <p className="text-primary font-bold text-2xl text-center">
               Olá, Bem Vindo ao Portal EAD MAKER.
