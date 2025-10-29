@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
-import assistantImage from "@/assets/assistant.png";
-import { BookOpen, GraduationCap, Users } from "lucide-react";
+import sofiaImage from "@/assets/sofia.jpg";
+import { BookOpen, GraduationCap, Users, Lock, Mail } from "lucide-react";
 
 const Index = () => {
   const [login, setLogin] = useState("");
@@ -20,119 +20,136 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-background flex items-center justify-center p-4">
-      <div className="w-full max-w-6xl grid md:grid-cols-2 gap-8 items-center">
-        {/* Login Form Section */}
-        <div className="animate-slide-in-left">
-          <div className="bg-card rounded-2xl shadow-card p-8 md:p-12">
-            <div className="mb-8">
-              <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
-                Portal EAD Maker
-              </h1>
-              <p className="text-muted-foreground text-sm md:text-base">
-                Ambiente de interação e aprendizagem sobre a plataforma
-              </p>
+    <div className="min-h-screen bg-gradient-background flex">
+      {/* Left Section - Login Form */}
+      <div className="w-full lg:w-1/2 flex items-center justify-center p-8 lg:p-16">
+        <div className="w-full max-w-xl animate-fade-in">
+          {/* Header */}
+          <div className="mb-12">
+            <h1 className="text-5xl font-bold text-foreground mb-4 leading-tight">
+              Portal EAD Maker
+            </h1>
+            <p className="text-lg text-muted-foreground">
+              Ambiente de interação e aprendizagem sobre a plataforma Maker!
+            </p>
+          </div>
+
+          {/* Login Form */}
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="space-y-3">
+              <Label htmlFor="login" className="text-base font-semibold flex items-center gap-2">
+                <Mail className="w-4 h-4 text-primary" />
+                Login
+              </Label>
+              <Input
+                id="login"
+                type="text"
+                placeholder="Digite seu login"
+                value={login}
+                onChange={(e) => setLogin(e.target.value)}
+                className="h-14 text-base transition-all duration-300 focus:shadow-soft border-2"
+              />
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="space-y-2">
-                <Label htmlFor="login" className="text-sm font-medium">
-                  Login
-                </Label>
-                <Input
-                  id="login"
-                  type="text"
-                  placeholder="Digite seu login"
-                  value={login}
-                  onChange={(e) => setLogin(e.target.value)}
-                  className="h-12 transition-all duration-300 focus:shadow-soft"
-                />
-              </div>
+            <div className="space-y-3">
+              <Label htmlFor="senha" className="text-base font-semibold flex items-center gap-2">
+                <Lock className="w-4 h-4 text-primary" />
+                Senha
+              </Label>
+              <Input
+                id="senha"
+                type="password"
+                placeholder="Digite sua senha"
+                value={senha}
+                onChange={(e) => setSenha(e.target.value)}
+                className="h-14 text-base transition-all duration-300 focus:shadow-soft border-2"
+              />
+            </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="senha" className="text-sm font-medium">
-                  Senha
-                </Label>
-                <Input
-                  id="senha"
-                  type="password"
-                  placeholder="Digite sua senha"
-                  value={senha}
-                  onChange={(e) => setSenha(e.target.value)}
-                  className="h-12 transition-all duration-300 focus:shadow-soft"
-                />
-              </div>
+            <div className="flex justify-end">
+              <button
+                type="button"
+                className="text-sm text-primary font-medium hover:underline transition-all duration-300"
+                onClick={() => toast.info("Funcionalidade em desenvolvimento")}
+              >
+                Esqueceu sua conta?
+              </button>
+            </div>
 
-              <div className="flex justify-end">
-                <button
-                  type="button"
-                  className="text-sm text-primary hover:underline transition-all duration-300"
-                  onClick={() => toast.info("Funcionalidade em desenvolvimento")}
-                >
-                  Esqueceu sua conta?
-                </button>
-              </div>
+            <div className="space-y-4 pt-4">
+              <Button
+                type="submit"
+                className="w-full h-14 text-lg font-bold shadow-soft hover:shadow-lg transition-all duration-300"
+              >
+                Entrar
+              </Button>
+              <Button
+                type="button"
+                variant="outline"
+                className="w-full h-14 text-lg font-bold border-2 hover:bg-secondary transition-all duration-300"
+                onClick={() => toast.info("Funcionalidade em desenvolvimento")}
+              >
+                Cadastre-se agora
+              </Button>
+            </div>
+          </form>
 
-              <div className="space-y-3">
-                <Button
-                  type="submit"
-                  className="w-full h-12 text-base font-semibold shadow-soft hover:shadow-lg transition-all duration-300"
-                >
-                  Entrar
-                </Button>
-                <Button
-                  type="button"
-                  variant="outline"
-                  className="w-full h-12 text-base font-semibold border-2 hover:bg-secondary transition-all duration-300"
-                  onClick={() => toast.info("Funcionalidade em desenvolvimento")}
-                >
-                  Cadastre-se agora
-                </Button>
-              </div>
-            </form>
-
-            {/* Features Section */}
-            <div className="mt-12 pt-8 border-t border-border">
-              <div className="grid grid-cols-3 gap-4 text-center">
-                <div className="flex flex-col items-center gap-2">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <BookOpen className="w-6 h-6 text-primary" />
-                  </div>
-                  <p className="text-xs text-muted-foreground">Cursos</p>
+          {/* Features Section */}
+          <div className="mt-16 pt-8 border-t-2 border-border">
+            <div className="grid grid-cols-3 gap-6">
+              <div className="flex flex-col items-center gap-3 text-center">
+                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
+                  <BookOpen className="w-8 h-8 text-primary" />
                 </div>
-                <div className="flex flex-col items-center gap-2">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <GraduationCap className="w-6 h-6 text-primary" />
-                  </div>
-                  <p className="text-xs text-muted-foreground">Aprendizado</p>
+                <p className="text-sm font-medium text-foreground">Cursos Interativos</p>
+              </div>
+              <div className="flex flex-col items-center gap-3 text-center">
+                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
+                  <GraduationCap className="w-8 h-8 text-primary" />
                 </div>
-                <div className="flex flex-col items-center gap-2">
-                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                    <Users className="w-6 h-6 text-primary" />
-                  </div>
-                  <p className="text-xs text-muted-foreground">Comunidade</p>
+                <p className="text-sm font-medium text-foreground">Aprendizado Contínuo</p>
+              </div>
+              <div className="flex flex-col items-center gap-3 text-center">
+                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center hover:bg-primary/20 transition-colors duration-300">
+                  <Users className="w-8 h-8 text-primary" />
                 </div>
+                <p className="text-sm font-medium text-foreground">Comunidade Ativa</p>
               </div>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Assistant Section */}
-        <div className="hidden md:flex flex-col items-center justify-center animate-slide-in-right">
+      {/* Right Section - Assistant */}
+      <div className="hidden lg:flex w-1/2 bg-gradient-to-br from-primary/5 via-primary/10 to-accent/5 items-center justify-center p-16 relative overflow-hidden">
+        {/* Decorative Elements */}
+        <div className="absolute top-20 right-20 w-72 h-72 bg-primary/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
+        
+        <div className="relative z-10 flex flex-col items-center animate-slide-in-right">
+          {/* Speech Bubble */}
+          <div className="mb-8 bg-card rounded-3xl shadow-card p-8 max-w-md relative">
+            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 w-0 h-0 border-l-[20px] border-l-transparent border-r-[20px] border-r-transparent border-t-[24px] border-t-card"></div>
+            <p className="text-primary font-bold text-2xl text-center">
+              Olá, Bem Vindo ao Portal EAD MAKER.
+            </p>
+          </div>
+
+          {/* Assistant Image */}
           <div className="relative">
-            <div className="absolute -top-8 -right-8 bg-card rounded-2xl shadow-card p-6 max-w-xs animate-fade-in">
-              <div className="relative">
-                <div className="absolute -left-6 top-1/2 -translate-y-1/2 w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent border-r-8 border-r-card"></div>
-                <p className="text-primary font-semibold text-lg">
-                  Olá, Bem Vindo ao Portal EAD MAKER.
-                </p>
-              </div>
-            </div>
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl blur-2xl transform scale-105"></div>
             <img
-              src={assistantImage}
-              alt="Assistente Virtual EAD Maker"
-              className="w-full max-w-md rounded-2xl"
+              src={sofiaImage}
+              alt="Sofia - Assistente Virtual EAD Maker"
+              className="relative w-full max-w-md rounded-3xl shadow-soft"
             />
+          </div>
+
+          {/* Additional Info */}
+          <div className="mt-8 text-center">
+            <p className="text-muted-foreground text-lg font-medium">
+              Pronta para ajudar você a navegar pela plataforma
+            </p>
           </div>
         </div>
       </div>
